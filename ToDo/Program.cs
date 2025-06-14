@@ -8,6 +8,8 @@ class Program
     static void Main()
     {
         List<Tarea> tareasPendientes = new List<Tarea>();
+        List<Tarea> tareasRealizadas = new List<Tarea>();
+
         Random rand = new Random();
 
         Console.WriteLine("¿Cuantas tareas desea generar?: ");
@@ -29,6 +31,24 @@ class Program
         foreach (Tarea t in tareasPendientes)
         {
             Console.WriteLine($"ID:{t.TareaId} - Descripcion: {t.Descripcion} - Duracion: {t.duracion}");
+        }
+
+
+
+        Console.Write("Ingrese el ID de la tarea que desea marcar como realizada: ");
+        int id = int.Parse(Console.ReadLine()!);
+
+        Tarea? tareaEncontrada = tareasPendientes.Find(t => t.TareaId == id);
+
+        if (tareaEncontrada != null)
+        {
+            tareasRealizadas.Add(tareaEncontrada);
+            tareasPendientes.Remove(tareaEncontrada);
+            Console.WriteLine("Tarea movida a realizadas correctamente");
+        }
+        else
+        {
+            Console.WriteLine("Tarea no encontrada");
         }
 
     }
