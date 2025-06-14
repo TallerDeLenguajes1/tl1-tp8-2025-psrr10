@@ -1,4 +1,4 @@
-namespace Tarea;
+namespace ToDo;
 
 public class Tarea
 {
