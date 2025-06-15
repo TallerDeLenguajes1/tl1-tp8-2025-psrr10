@@ -35,7 +35,7 @@ class Program
 
 
 
-        Console.Write("Ingrese el ID de la tarea que desea marcar como realizada: ");
+        Console.WriteLine("Ingrese el ID de la tarea que desea marcar como realizada: ");
         int id = int.Parse(Console.ReadLine()!);
 
         Tarea? tareaEncontrada = tareasPendientes.Find(t => t.TareaId == id);
@@ -51,6 +51,19 @@ class Program
             Console.WriteLine("Tarea no encontrada");
         }
 
+        Console.WriteLine("Ingrese una descripcion para buscar una tarea pendiente:");
+        string descripcionBuscada = Console.ReadLine()!.Trim();
+
+        Tarea? tareaEncontrada2 = tareasPendientes.Find(t => t.Descripcion.ToLower() == descripcionBuscada.ToLower());
+        if (tareaEncontrada2 != null)
+        {
+            Console.WriteLine($"Descripcion Tarea encontrada: {tareaEncontrada2.Descripcion}");
+        }
+        else
+        {
+            Console.WriteLine("No se encontró ninguna tarea con esa descripcion");
+        }
     }
+
 
 }
