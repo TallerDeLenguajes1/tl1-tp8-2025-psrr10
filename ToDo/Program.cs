@@ -63,7 +63,20 @@ class Program
         {
             Console.WriteLine("No se encontró ninguna tarea con esa descripcion");
         }
+
+        Console.WriteLine("\n--- TAREAS PENDIENTES ---");
+        foreach (Tarea t in tareasPendientes)
+        {
+            Console.WriteLine($"ID:{t.TareaId}, Descripcion: {t.Descripcion}, Duracion: {t.duracion}");
+        }
+
+        Console.WriteLine("\n--- TAREAS REALIZADAS ---");
+        foreach (Tarea t in tareasRealizadas)
+        {
+            Console.WriteLine($"ID:{t.TareaId}, Descripcion: {t.Descripcion}, Duracion: {t.duracion}");
+        }
+
+
+
     }
-
-
 }
